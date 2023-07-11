@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@600&family=Lato&display=swap");
+
+.login {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--bg-color);
+
+  &__wrapper {
+    background-color: var(--bg-color-secondary);
+    width: 320px;
+    height: 400px;
+    padding: 20px;
+    border: 1px solid var(--bg-color);
+    border-radius: 8px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    &-logo {
+      width: 128px;
+      height: 130px;
+      background-image: url(../image/logos.png);
+      background-repeat: no-repeat;
+    }
+
+    &-text {
+      top: 0;
+      color: var(--color);
+      display: flex;
+      justify-content: center;
+      align-self: center;
+      align-items: center;
+      font-size: 28px;
+      font-family: "Lato";
+      width: 128px;
+      font-weight: 400;
+    }
+
+    &-rectangle {
+      width: 100%;
+      height: 1px;
+      background-color: var(--bg-light);
+    }
+
+    input {
+      width: 100%;
+      height: 38px;
+      background: fixed;
+      border: none;
+      border: 1px solid var(--bg-light);
+      border-radius: 6px;
+      outline: none;
+      color: var(--color);
+      padding: 5px 10px;
+      font-family: "Lato";
+      font-size: 15px;
+      line-height: 21px;
+      align-items: center;
+      box-shadow: var(--shadow);
+
+      &:hover {
+        border: 2px solid var(--bg-light);
+      }
+
+      &::placeholder {
+        opacity: 1;
+        width: 100%;
+        height: 100%;
+        color: #ffffffa3;
+      }
+    }
+
+    &-btn {
+      // width: 100%;
+      // background-color: var(--ui-red);
+      // height: 38px;
+      // border-radius: 8px;
+      // button {
+        width: 100%;
+      background-color: var(--ui-red);
+      height: 38px;
+      border: none;
+      border-radius: 8px;
+      color: #e4e4e7;
+      font-family: "Lato";
+      font-size: 14px;
+      line-height: 16px;
+      letter-spacing: 0.8px;
+      align-items: center;
+      // }
+
+      &:hover {
+        background-color:  #d03929;
+      }
+    }
+
+    &-defoult {
+       width: 100%;
+      background-color:  #b93021ad;
+      height: 38px;
+      border: none;
+      border-radius: 8px;
+      color: #e4e4e7;
+      font-family: "Lato";
+      font-size: 14px;
+      line-height: 16px;
+      letter-spacing: 0.8px;
+      align-items: center;
+    }
+  }
+}
+
+
+@media  (max-width: 768px) {
+  .login {
+    &__wrapper  {
+      width: 250px;
+      height: 350px;
+    }
+  }
+}
