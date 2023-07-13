@@ -18,8 +18,6 @@ const Login = () => {
   };
 
   const Hendl = (e) => {
-    console.log(state);
-
     e.preventDefault();
     instance
       .get(`/users/${state}`)
@@ -34,11 +32,17 @@ const Login = () => {
         console.log(err);
         setSearchResult({ loading: true });
       });
+
+
+    
   };
 
   if (searchResult.statusCode === 200) {
+    alert("siz mofaqiyatli kirdingiz!")
     navigate(`/home/${searchResult.data.id}`);
   }
+
+  
 
   const Marg = (e) => {
     e.preventDefault();
