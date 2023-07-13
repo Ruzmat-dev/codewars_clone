@@ -13,11 +13,22 @@ const Login = () => {
 
   const getUser = (e) => {
     setState(e.target.value);
-    instance
-      .get(`/users/${e.target.value}`)
-      .then((response) => setSearchResult(response.data))
-      .cath((err) => console.log(err));
+
   };
+
+  const Hendl = (e) => {
+    console.log(state);
+    e.preventDefault()
+    instance
+    .get(`/users/${state}`)
+    .then((response) => setSearchResult(response.data))
+    .cath((err) => console.log(err));    
+
+    console.log(searchResult);
+    // searchResult.length < 0 ? alert("Please")  : confirm("siz haqiqatan ham kirmoqchi misiz?")
+  }
+
+    console.log(searchResult);
 
   const Marg = (e) => {
     e.preventDefault();
@@ -40,9 +51,11 @@ const Login = () => {
         />
 
         {state.length > 2 ? (
-          <button className="login__wrapper-btn" onClick={() => navigate(`/home/${searchResult.id}`)}>
+          <span className="login__wrapper-btn" onClick={() => navigate(`/home/${searchResult.id}`)}>
+            <button className="login__wrapper-btn" onClick={Hendl}>
             Kirish
-          </button>
+          </button>    
+         </span>
         ) : (
           <button className="login__wrapper-defoult" defaultValue onClick={Marg}>Kirish</button>
         )}

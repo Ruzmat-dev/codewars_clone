@@ -79,12 +79,7 @@
     }
 
     &-btn {
-      // width: 100%;
-      // background-color: var(--ui-red);
-      // height: 38px;
-      // border-radius: 8px;
-      // button {
-        width: 100%;
+        width: 100% !important;
       background-color: var(--ui-red);
       height: 38px;
       border: none;
@@ -95,7 +90,6 @@
       line-height: 16px;
       letter-spacing: 0.8px;
       align-items: center;
-      // }
 
       &:hover {
         background-color:  #d03929;
@@ -118,6 +112,10 @@
   }
 }
 
+.login__wrapper-btn {
+
+}
+
 
 @media  (max-width: 768px) {
   .login {
@@ -126,4 +124,8 @@
       height: 350px;
     }
   }
+}
+
+.momo {
+  display: none;
 }

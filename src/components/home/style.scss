@@ -105,7 +105,6 @@
 
 .kyu {
   display: flex;
-  // flex-direction: row;
   align-self: center;
   justify-content: space-between;
   align-items: center;
@@ -146,29 +145,12 @@
 
   &__wrapper {
     display: flex;
-    // flex-direction: row;
     align-items: center;
     clip-path: polygon(25% 0%, 100% 0, 95% 51%, 100% 100%, 25% 100%, 20% 48%);
     background-color: var(--bg-light);
     width: 400px;
     height: 55px;
-    // left: 0;
-    // position: relative;
-
     &-leval {
-      // // background-color: #000;
-      // width: 250px;
-      // height: 200px;
-      // margin-right: 50px;
-      // // position: relative;
-      // // z-index: 100;
-      // margin-bottom: 10px;
-      // align-items: center;
-      // -webkit-clip-path: polygon(28% 41%, 71% 41%, 86% 51%, 73% 63%, 26% 63%, 14% 51%);
-      // clip-path: polygon(28% 41%, 71% 41%, 86% 51%, 73% 63%, 26% 63%, 14% 51%);
-      // margin-left: 100px;
-      // color: red;
-      // background-color: blue;
 
       position: relative;
       width: 80px;
@@ -196,9 +178,6 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
-        // text-align: center;
-        // margin-left: 100px;
-        /*   color:yellow;; */
         z-index: -1;
         -webkit-clip-path: polygon(
           28% 36%,
@@ -257,7 +236,6 @@
   line-height: 16.8px;
   align-items: center;
   color: #ecb613;
-  // justify-content:center;
 }
 
 .outside {
@@ -317,7 +295,6 @@
 
 @media (max-width: 800px) {
   .kyu {
-    // flex-direction: column;
     gap: 10px;
 
     &__wrapper {
@@ -335,17 +312,9 @@
 
 @media (max-width: 630px) {
   .kyu {
-    // flex-direction: column;
     gap: 10px;
     height: 150px;
   }
-
-  // .kyu__wrapper-leval {
-  //   margin-left: 0px;
-  // }
-  // .kyu__user {
-  //   margin-right: 0px;
-  // }
 
   .kyu__name-wrapper {
     margin-left: -50px !important;
