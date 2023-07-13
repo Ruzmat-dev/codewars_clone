@@ -10,10 +10,10 @@ function App() {
 
   return (
     <Routes>
-        <Route path="/" element={<Auth/>} />
+        <Route path="/" element={<Login/>} />
         <Route path="/home/:id" element={<Home/>} />
         {/* <Route path="/home/undefined" element={<Login/>} /> */}
-        <Route path="/home/auth" element={<Ccomponent/>} />
+        {/* <Route path="/home/auth" element={<Ccomponent/>} /> */}
     </Routes>
   )
 }

@@ -4,31 +4,41 @@ import instance from "../../api/instance";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const [searchResult, setSearchResult] = useState([]);
+  const [searchResult, setSearchResult] = useState({
+    loading: true,
+    data: [],
+    statusCode: null,
+  });
   const [state, setState] = useState("");
 
   const navigate = useNavigate();
 
-
-
   const getUser = (e) => {
     setState(e.target.value);
-
   };
 
   const Hendl = (e) => {
     console.log(state);
-    e.preventDefault()
+
+    e.preventDefault();
     instance
-    .get(`/users/${state}`)
-    .then((response) => setSearchResult(response.data))
-    .cath((err) => console.log(err));    
+      .get(`/users/${state}`)
+      .then((response) =>
+        setSearchResult({
+          loading: false,
+          data: response.data,
+          statusCode: response.status,
+        })
+      )
+      .cath((err) => {
+        console.log(err);
+        setSearchResult({ loading: true });
+      });
+  };
 
-    console.log(searchResult);
-    // searchResult.length < 0 ? alert("Please")  : confirm("siz haqiqatan ham kirmoqchi misiz?")
+  if (searchResult.statusCode === 200) {
+    navigate(`/home/${searchResult.data.id}`);
   }
-
-    console.log(searchResult);
 
   const Marg = (e) => {
     e.preventDefault();
@@ -45,20 +55,17 @@ const Login = () => {
         <input
           min="2"
           value={state}
-          onInput={(event) => getUser(event)}
+          onInput={(e) => getUser(e)}
           type="text"
           placeholder="codewars user name"
         />
-
-        {state.length > 2 ? (
-          <span className="login__wrapper-btn" onClick={() => navigate(`/home/${searchResult.id}`)}>
-            <button className="login__wrapper-btn" onClick={Hendl}>
-            Kirish
-          </button>    
-         </span>
-        ) : (
-          <button className="login__wrapper-defoult" defaultValue onClick={Marg}>Kirish</button>
-        )}
+        {
+          state.length > 2 ? (<button className="login__wrapper-btn" onClick={Hendl}>
+          Kirish
+        </button>) : (<button className="login__wrapper-btn" onClick={Marg}>
+          Kirish
+        </button>)
+        }
       </form>
     </div>
   );
