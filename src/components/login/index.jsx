@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./style.scss";
 import instance from "../../api/instance";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const [searchResult, setSearchResult] = useState({
@@ -32,24 +34,28 @@ const Login = () => {
         console.log(err);
         setSearchResult({ loading: true });
       });
-
-
-    
   };
 
   if (searchResult.statusCode === 200) {
-    alert("siz mofaqiyatli kirdingiz!")
-    navigate(`/home/${searchResult.data.id}`);
+    toast.success("login successfully", {
+      position: "top-right",
+      autoClose: 300,
+    });
+    setTimeout(() => {
+      navigate(`/home/${searchResult.data.id}`);
+    }, 1500);
   }
-
-  
 
   const Marg = (e) => {
     e.preventDefault();
-    alert(" Iltimos kami 3ta soz yozig");
+    toast.error("Sorry, no such user exists", {
+      position: "top-right",
+      autoClose: 500,
+    });
   };
   return (
     <div className="login">
+      <ToastContainer />
       <form className="login__wrapper">
         <span>
           <div className="login__wrapper-logo"></div>
@@ -63,13 +69,15 @@ const Login = () => {
           type="text"
           placeholder="codewars user name"
         />
-        {
-          state.length > 2 ? (<button className="login__wrapper-btn" onClick={Hendl}>
-          Kirish
-        </button>) : (<button className="login__wrapper-btn" onClick={Marg}>
-          Kirish
-        </button>)
-        }
+        {state.length > 2 ? (
+          <button className="login__wrapper-btn" onClick={Hendl}>
+            Kirish
+          </button>
+        ) : (
+          <button className="login__wrapper-btn" onClick={Marg}>
+            Kirish
+          </button>
+        )}
       </form>
     </div>
   );
