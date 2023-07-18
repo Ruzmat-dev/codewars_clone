@@ -1,8 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState  , useRef} from "react";
 import "./style.scss";
 import instance from "../../api/instance";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+// import CircularProgress from '@mui/material/CircularProgress';
+// import Box from '@mui/material/Box';
+import { Stack } from "@mui/material";
+import { LoadingButton } from "@mui/lab";
+
 import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
@@ -12,7 +17,8 @@ const Login = () => {
     statusCode: null,
   });
   const [state, setState] = useState("");
-
+  const element = useRef(null);
+  const loadingElement = useRef(null)
   const navigate = useNavigate();
 
   const getUser = (e) => {
@@ -37,6 +43,8 @@ const Login = () => {
   };
 
   if (searchResult.statusCode === 200) {
+    element.current.style.display = "none"; 
+    loadingElement.current.style.display = "block"; 
     toast.success("login successfully", {
       position: "top-right",
       autoClose: 300,
@@ -44,6 +52,13 @@ const Login = () => {
     setTimeout(() => {
       navigate(`/home/${searchResult.data.id}`);
     }, 1500);
+  }
+
+  if(!searchResult.loading) {
+    console.log("loading");
+    // <Box sx={{ display: 'flex' }}>
+    //   <CircularProgress />
+    // </Box>
   }
 
   const Marg = (e) => {
@@ -69,12 +84,15 @@ const Login = () => {
           type="text"
           placeholder="codewars user name"
         />
+        <div className="loadingBtn" ref={loadingElement}> 
+            <LoadingButton  className="loadingBtn" loading variant="utlined">Submit</LoadingButton>
+        </div>
         {state.length > 2 ? (
-          <button className="login__wrapper-btn" onClick={Hendl}>
+          <button ref={element} type="submit" className="login__wrapper-btn" onClick={Hendl}>
             Kirish
           </button>
         ) : (
-          <button className="login__wrapper-btn" onClick={Marg}>
+          <button className="login__wrapper-btn" disabled onClick={Marg}>
             Kirish
           </button>
         )}

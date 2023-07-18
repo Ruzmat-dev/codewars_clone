@@ -53,7 +53,7 @@
 
     &-info {
       width: 100%;
-      padding: 50px;
+      padding: 10px;
       height: 400px;
       background-color: #222327;
       border-radius: var(--border-radius);
@@ -99,6 +99,64 @@
           line-height: 21px;
         }
       }
+    }
+  }
+}
+
+.scroll{
+  width: 100%;
+  // background-color: red;
+  color: white;
+  height: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+  border-radius: var(--border-radius);
+}
+
+.card__question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  height: 50px;
+  margin: auto;
+  padding: 10px 15px;
+  border: 1px solid white;
+  border-radius: var(--border-radius);
+  margin-top: 10px;
+  color: #b0b0b0;
+
+  h3 {
+    font-family: "Inter";
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 1px;
+    color: #b0b0b0;
+  }
+
+  p {
+    color: #c0c0c0;
+    font-family: var(--font);
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  a {
+    background-color: var(--bg-color);
+    color: #c0c0c0;
+    font-family: var(--font);
+    font-size: 14px;
+    line-height: 21px;
+    padding: 6px 10px;
+    border-radius: var(--border-radius);
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 1s ease-in-out  ;
+
+   &:hover {
+      background-color: #6795DE;
     }
   }
 }
@@ -243,15 +301,8 @@
   width: 70vmin;
   height: 70vmin;
   background: yellow;
-  -webkit-clip-path: polygon(
-    28% 36%,
-    72% 36%,
-    92% 50%,
-    74% 67%,
-    25% 67%,
-    6% 49%
-  );
-  clip-path: polygon(28% 36%, 72% 36%, 92% 50%, 74% 67%, 25% 67%, 6% 49%);
+  -webkit-clip-path:polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  clip-path:polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
 }
 
 .inside {
