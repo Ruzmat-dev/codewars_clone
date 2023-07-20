@@ -3,9 +3,6 @@ import "./style.scss";
 import instance from "../../api/instance";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-// import CircularProgress from '@mui/material/CircularProgress';
-// import Box from '@mui/material/Box';
-import { Stack } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
 
 import "react-toastify/dist/ReactToastify.css";
@@ -27,6 +24,16 @@ const Login = () => {
 
   const Hendl = (e) => {
     e.preventDefault();
+    element.current.style.display = "none"; 
+    loadingElement.current.style.display = "block"; 
+    setTimeout(() => {
+      element.current.style.display = "block"; 
+      loadingElement.current.style.display = "none"; 
+      toast.error("Sorry, no such user exists", {
+        position: "top-right",
+        autoClose: 500,
+      });
+    }, 3000);
     instance
       .get(`/users/${state}`)
       .then((response) =>
@@ -43,8 +50,6 @@ const Login = () => {
   };
 
   if (searchResult.statusCode === 200) {
-    element.current.style.display = "none"; 
-    loadingElement.current.style.display = "block"; 
     toast.success("login successfully", {
       position: "top-right",
       autoClose: 300,
@@ -54,20 +59,8 @@ const Login = () => {
     }, 1500);
   }
 
-  if(!searchResult.loading) {
-    console.log("loading");
-    // <Box sx={{ display: 'flex' }}>
-    //   <CircularProgress />
-    // </Box>
-  }
+ 
 
-  const Marg = (e) => {
-    e.preventDefault();
-    toast.error("Sorry, no such user exists", {
-      position: "top-right",
-      autoClose: 500,
-    });
-  };
   return (
     <div className="login">
       <ToastContainer />
@@ -87,15 +80,10 @@ const Login = () => {
         <div className="loadingBtn" ref={loadingElement}> 
             <LoadingButton  className="loadingBtn" loading variant="utlined">Submit</LoadingButton>
         </div>
-        {state.length > 2 ? (
+        
           <button ref={element} type="submit" className="login__wrapper-btn" onClick={Hendl}>
             Kirish
           </button>
-        ) : (
-          <button className="login__wrapper-btn" disabled onClick={Marg}>
-            Kirish
-          </button>
-        )}
       </form>
     </div>
   );

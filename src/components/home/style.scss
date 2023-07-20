@@ -11,23 +11,21 @@
   color: var(--color);
 
   &__container {
-    width: 90%;
+    width: 1024px;
     margin: auto;
-    margin-top: 5%;
+    margin-top: 65px;
   }
 
   &__wrapper {
-    width: 100% !important;
+    width: 1024px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 10px;
   }
 
   &__wrapper {
     display: flex;
     justify-content: space-between;
-    padding: 10px;
 
     &-header {
       display: flex;
@@ -37,23 +35,34 @@
   }
 
   &__card {
+    span {
+      display: flex;
+      justify-content: space-between;
+      align-self: center;
+      align-items: center;
+    }
     &-btn {
       background-color: #222327;
       color: #c0c0c0;
       font-family: var(--font);
+      margin-top: 76px;
       font-size: 14px;
       width: 97px;
       height: 37px;
       line-height: 21px;
       padding: 8px 10px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       border-radius: var(--border-radius);
       border: none;
+      transition: 0.5s ease-in-out;
+      &:hover {
+        background-color: #6795de;
+      }
     }
 
     &-info {
       width: 100%;
-      padding: 10px;
+      padding: 8px;
       height: 400px;
       background-color: #222327;
       border-radius: var(--border-radius);
@@ -103,14 +112,17 @@
   }
 }
 
-.scroll{
+.scroll {
   width: 100%;
-  // background-color: red;
   color: white;
   height: 100%;
   overflow: hidden;
   overflow-y: scroll;
   border-radius: var(--border-radius);
+}
+
+.scroll::-webkit-scrollbar {
+  display: none;
 }
 
 .card__question {
@@ -134,29 +146,36 @@
     color: #b0b0b0;
   }
 
-  p {
-    color: #c0c0c0;
-    font-family: var(--font);
-    font-size: 14px;
-    line-height: 21px;
-  }
+  span {
+    display: flex;
+    flex-direction: row;
+    gap: 80px;
+    align-items: center;
+    align-self: center;
+    p {
+      color: #c0c0c0;
+      font-family: var(--font);
+      font-size: 14px;
+      line-height: 21px;
+    }
 
-  a {
-    background-color: var(--bg-color);
-    color: #c0c0c0;
-    font-family: var(--font);
-    font-size: 14px;
-    line-height: 21px;
-    padding: 6px 10px;
-    border-radius: var(--border-radius);
-    border: none;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    transition: 1s ease-in-out  ;
+    a {
+      background-color: var(--bg-color);
+      color: #c0c0c0;
+      font-family: var(--font);
+      font-size: 14px;
+      line-height: 21px;
+      padding: 6px 10px;
+      border-radius: var(--border-radius);
+      border: none;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: 1s ease-in-out;
 
-   &:hover {
-      background-color: #6795DE;
+      &:hover {
+        background-color: #6795de;
+      }
     }
   }
 }
@@ -167,16 +186,15 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 100px !important;
+  height: 95px !important;
+  padding: 16px;
   background-color: var(--bg-card);
-  width: 100%;
-  height: 55px;
-  display: flex;
   border-radius: var(--border-radius);
 
   &__dflex {
     display: flex;
     align-items: center;
+    width: 372px !important;
     gap: 10px;
   }
 
@@ -186,12 +204,15 @@
     gap: 8px;
   }
 
+  &__honor {
+    margin-left: -123px;
+  }
+
   &__name {
     font-family: "Inter";
     font-size: 14px;
     line-height: 17px;
     letter-spacing: 1px;
-    margin-left: 100px;
     color: #b0b0b0;
     span {
       font-family: "Lato", "Helvetica Neue";
@@ -204,33 +225,33 @@
   &__wrapper {
     display: flex;
     align-items: center;
-    clip-path: polygon(25% 0%, 100% 0, 95% 51%, 100% 100%, 25% 100%, 20% 48%);
+    clip-path: polygon(66% 0, 63% 50%, 66% 100%, 3% 100%, 0 49%, 3% 0);
     background-color: var(--bg-light);
-    width: 400px;
-    height: 55px;
+    width: 410.014px;
+    height: 40px;
+    flex-shrink: 0;
     &-leval {
-
       position: relative;
       width: 80px;
       height: 105px;
       background: #ecb613;
-      margin-left: 85px;
+      margin: 6px 0 7px 7px;
       -webkit-clip-path: polygon(
-        28% 36%,
-        72% 36%,
-        92% 50%,
-        74% 67%,
-        25% 67%,
-        6% 49%
+        19% 37%,
+        78% 37%,
+        86% 51%,
+        76% 66%,
+        18% 66%,
+        9% 51%
       );
-      clip-path: polygon(28% 36%, 72% 36%, 92% 50%, 74% 67%, 25% 67%, 6% 49%);
+      clip-path: polygon(19% 37%, 78% 37%, 86% 51%, 76% 66%, 18% 66%, 9% 51%);
 
       span {
         color: red($color: #000000);
         position: absolute;
         top: 14px;
-        left: 8px;
-        right: 8px;
+        left: 5px;
+        right: 5px;
         bottom: 14px;
         background: #141414;
         display: flex;
@@ -238,28 +259,24 @@
         gap: 10px;
         z-index: -1;
         -webkit-clip-path: polygon(
-          28% 36%,
-          72% 36%,
-          92% 50%,
-          74% 67%,
-          25% 67%,
-          6% 49%
+          19% 37%,
+          78% 37%,
+          86% 51%,
+          76% 66%,
+          18% 66%,
+          9% 51%
         );
-        clip-path: polygon(28% 36%, 72% 36%, 92% 50%, 74% 67%, 25% 67%, 6% 49%);
+        clip-path: polygon(19% 37%, 78% 37%, 86% 51%, 76% 66%, 18% 66%, 9% 51%);
 
         span {
           margin-top: 11px;
           position: relative;
           height: 10px;
-          &-name {
-            margin-left: 50px;
-          }
         }
       }
     }
 
     &-name {
-      margin-left: 5px;
       font-family: "lato";
       font-size: 20px;
       line-height: 24px;
@@ -273,10 +290,11 @@
     line-height: 16.94px;
     letter-spacing: 1px;
     color: #b0b0b0;
-    margin-right: 100px;
+    margin-bottom: 46px;
 
     span {
       font-family: var(--font);
+      padding: 10px;
       font-size: 14px;
       line-height: 16.8px;
       letter-spacing: 0.5px;
@@ -291,6 +309,7 @@
   align-items: center;
   font-family: "Lato";
   font-size: 14px;
+  padding: 0px 5px 1px 0px;
   line-height: 16.8px;
   align-items: center;
   color: #ecb613;
@@ -301,8 +320,15 @@
   width: 70vmin;
   height: 70vmin;
   background: yellow;
-  -webkit-clip-path:polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-  clip-path:polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  -webkit-clip-path: polygon(
+    25% 0%,
+    75% 0%,
+    100% 50%,
+    75% 100%,
+    25% 100%,
+    0% 50%
+  );
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
 }
 
 .inside {
@@ -333,69 +359,239 @@
   height: 37px;
   line-height: 21px;
   padding: 8px 10px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   border-radius: var(--border-radius);
   border: none;
+  margin-top: 70px;
+  transition: 0.5s ease-in-out;
+  &:hover {
+    background-color: var(--ui-red);
+  }
+}
+
+@media (max-width: 1100px) {
+  .home__wrapper {
+    width: 900px;
+    margin: auto;
+  }
+}
+@media (max-width: 1020px) {
+  .home__wrapper {
+    width: 800px;
+    margin: auto;
+  }
 }
 
 @media (max-width: 1010px) {
+  .home__wrapper {
+    margin: auto;
+  }
   .kyu__wrapper {
     width: 350px;
   }
 }
+@media (max-width: 980px) {
+  .home__wrapper {
+    width: 700px;
+    margin: auto;
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+}
+@media (max-width: 862px) {
+  .home__wrapper {
+    width: 600px;
+    margin: auto;
+    margin-left: 100px;
+    margin-right: 80px;
+  }
 
-@media (max-width: 800px) {
+  .kyu__dflex {
+    width: 276px !important;
+  }
+}
+
+@media (max-width: 771px) {
+  .home__wrapper {
+    width: 500px;
+    margin: auto;
+    margin-left: 100px;
+    margin-right: 80px;
+  }
+
   .kyu {
-    gap: 10px;
-
     &__wrapper {
-      width: 260px
+      width: 250px;
+
+      &-name {
+        font-size: 12px;
+      }
+    }
+
+    &__honor {
+      margin-left: -90px;
+    }
+
+    &__user {
+      font-size: 10px;
+  
+      span {
+        font-size: 10px;
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    &__name {
+      font-size: 10px;
+  
+      span {
+        font-size: 9px;
+      }
     }
   }
 
-  .kyu__wrapper-leval {
+
+
+}
+@media (max-width: 640px) {
+  .home__wrapper {
     margin-left: 60px;
   }
-  .kyu__user {
-    margin-right: 45px;
+}
+@media (max-width: 605px) {
+  .home__wrapper {
+    margin-left: 40px;
+  }
+}
+@media (max-width: 565px) {
+  .home__wrapper {
+    width: 450px;
+  }
+
+  .kyu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    height: 130px !important;
+  
+    &__wrapper {
+      width: 300px;
+    }
+
+    &__honor {
+      margin-left: -100px;
+    }
+
+    &__name {
+      font-size: 14px;
+  
+      span {
+        font-size: 12px;
+      }
+   
+      &-wrapper {
+        flex-direction: row;
+        align-items: center;
+        align-self: center;
+      }
+    }
+ 
+    &__user {
+      font-size: 14px;
+      margin-bottom: 0;
+      align-items: center;
+      span {
+        padding: 10px;
+        font-size: 14px;
+      }
+    }
   }
 }
 
-@media (max-width: 630px) {
-  .kyu {
-    gap: 10px;
-    height: 150px;
+@media (max-width: 516px) {
+  .home__wrapper {
+    width: 350px;
+    margin-left: 90px;
   }
 
   .kyu__name-wrapper {
-    margin-left: -50px !important;
+    flex-direction: column;
   }
 
-  .kyu__user {
-    margin-right: 15px;
-  }
-}
+  .card__question {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 150px;
+    padding: 20px;
 
-@media (max-width:531px) {
-  .kyu__user {
-    font-size: 12px;
-    line-height: 5px;
-    letter-spacing: 0px;
-  }
-
-  .kyu__name {
-    font-size: 15px;
-    line-height: 5px;
-    letter-spacing: 0px;
-  }
-
-  .kyu__wrapper {
-    height: 43px;
+    span {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
   }
 }
 
-@media (max-width:490px) {
+@media (max-width: 490px) {
+  .home__wrapper {
+    width: 350px;
+    margin-left: 50px;
+  }
+}
+@media (max-width: 430px) {
+  .home__wrapper {
+    width: 320px;
+    margin-left: 30px;
+  }
+}
+@media (max-width: 370px) {
+  .home__wrapper {
+    width: 250px;
+    margin-left: 50px;
+  }
+
   .kyu {
-    gap: 5px;
+    &__wrapper {
+      width: 250px;
+      margin-left: 40px;
+    }
+
+    &__honor {
+      margin-left: -80px;
+    }
+  }
+}
+@media (max-width: 330px) {
+  .home__wrapper {
+    width: 240px;
+    margin-left: 30px;
+  }
+
+  .kyu {
+    &__user {
+      font-size: 12px;
+  
+      span {
+        font-size: 12px;
+        padding: 5px;
+      }
+    }
+
+    &__name {
+      font-size: 12px;
+  
+      span {
+        font-size: 10px;
+      }
+    }
+  }
+}
+@media (max-width: 280px) {
+  .home__wrapper {
+    width: 220px;
+    margin-left: 20px;
   }
 }

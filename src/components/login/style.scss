@@ -67,7 +67,8 @@
       box-shadow: var(--shadow);
 
       &:hover {
-        border: 2px solid var(--bg-light);
+        outline: 0;
+        outline-offset: 0;
       }
 
       &::placeholder {
@@ -79,7 +80,7 @@
     }
 
     &-btn {
-        width: 100% !important;
+      width: 100% !important;
       background-color: var(--ui-red);
       height: 38px;
       border: none;
@@ -90,15 +91,16 @@
       line-height: 16px;
       letter-spacing: 0.8px;
       align-items: center;
+      cursor: pointer;
 
       &:hover {
-        background-color:  #d03929;
+        background-color: #d03929;
       }
     }
 
     &-defoult {
-       width: 100%;
-      background-color:  #b93021ad;
+      width: 100%;
+      background-color: #b93021ad;
       height: 38px;
       border: none;
       border-radius: 8px;
@@ -116,16 +118,28 @@
   display: none;
 }
 
+.momo {
+  display: none;
+}
 
-@media  (max-width: 768px) {
+@media (max-width: 768px) {
   .login {
-    &__wrapper  {
+    &__wrapper {
       width: 250px;
       height: 350px;
     }
   }
 }
 
-.momo {
-  display: none;
+@media (max-width: 270px) {
+  .login {
+    &__wrapper {
+      width: 200px;
+      height: 350px;
+    }
+  
+    &__wrapper-logo {
+      height: 130px;
+    }
+  }
 }

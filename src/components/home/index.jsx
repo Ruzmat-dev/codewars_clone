@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./style.scss";
 import { useParams, useNavigate } from "react-router-dom";
-import instance from "../../api/instance";
 import Card from "../../UI/Card";
 
 const Home = () => {
@@ -12,12 +11,8 @@ const Home = () => {
 
   const goback = useNavigate();
 
-  // const fetchUserData = () => {
-
-  // };
   const name = dota.username;
 
-  // const getExsampls = (e) => {
 
   useEffect(() => {
     fetch(`https://www.codewars.com/api/v1/users/${userData.id}`)
@@ -33,38 +28,12 @@ const Home = () => {
     )
       .then((res) => res.json())
       .then((data) => setQuestion(data));
-    // .catch((error) => console.log(error));
-    // console.log(question);
   }, [name]);
-  // console.log(question);
-
-  // const getQuestion = (e) => {
-  //   e.preventDefault();
-  //   console.log();
-  // }
-  //  setTimeout(() => {
-
-  //  }, 1000);
-  // }
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     getExsampls()
-  //   }, 1000);
-  //   console.log(1)
-  // }, []);
-
-  // (() => {
-  //   getExsampls()
-  // }, 1000);
 
   return (
     <div className="home">
       <div className="home__container">
         <div className="home__wrapper">
-          <button className="logout" onClick={() => goback("/")}>
-            Logout
-          </button>
           <div className="kyu">
             <div className="kyu__name-wrapper">
               <span className="kyu__dflex">
@@ -77,12 +46,12 @@ const Home = () => {
                   </div>
                   <div className="kyu__wrapper-name">{dota.username}</div>
                 </span>
-                <span>{dota.honor}</span>
+                <span className="kyu__honor">{dota.honor}</span>
               </span>
 
               <p className="kyu__name">
                 {" "}
-                Name: <span>{dota.name}</span>{" "}
+                Name: <span>{dota.name ? dota.name : "Mavjud emas"}</span>{" "}
               </p>
             </div>
 
@@ -92,23 +61,19 @@ const Home = () => {
             </p>
           </div>
           <div className="home__card">
-            <div className="home__card-btn">Solution list</div>
-            <div className="home__card-info">
-              {/* <div className="home__card-info-fuctionOne">
-                <p>Calculating with Functions</p>
-                <span>Completed languages: {dota.skills} </span>
-                </div>
-                <div className="home__card-info-fuctionTwo">
-                <p>Calculating with Functions</p>
-                <span>Completed languages: {dota.skills} </span>
-                </div> */}
-                <div className="scroll">
-                {question?.data.map((el) => {
-                return <Card data={el} key={el.id} />;
-              })}
-                </div>
+            <span>
 
-              
+            <button className="home__card-btn">Solution list</button>
+            <button className="logout" onClick={() => goback("/")}>
+              Logout
+            </button>
+            </span>
+            <div className="home__card-info">
+              <div className="scroll">
+                {question?.data.map((el) => {
+                  return <Card data={el} key={el.id} />;
+                })}
+              </div>
             </div>
           </div>
         </div>
